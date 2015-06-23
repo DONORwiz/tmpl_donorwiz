@@ -160,16 +160,15 @@ if (isset($head)) {
 $document = JFactory::getDocument() ;
 $document -> setGenerator('DONORwiz');
 
-// $headData = $document->getHeadData() ;
-
-// $styleSheets = $headData['styleSheets'];
-
-// foreach ($styleSheets as $path => $data) {
-	
-	// unset($styleSheets[$path]);
-// }
-
-// $headData['styleSheets'] = $styleSheets;
-
-// $document->setHeadData($headData);
-
+//Open graph
+if( JFactory::getApplication() -> input -> get('option','','string')!='com_community')
+{
+	//Basic
+	$document->addCustomTag('<meta property="og:title" content="'.$document->title.'" />' );
+	$document->addCustomTag('<meta property="og:type" content="website" />' );
+	$document->addCustomTag('<meta property="og:image" content="http://assets.donorwiz.com/logo/logo.png" />' );
+	$document->addCustomTag('<meta property="og:url" content="'.JFactory::getURI()->toString().'" />' );
+	//Optional
+	$document->addCustomTag('<meta property="og:locale" content="'.str_replace ( '-' , '_' ,JFactory::getLanguage() ->getTag()  ).'" />' );
+	$document->addCustomTag('<meta property="og:site_name" content="DONORwiz" />' );
+}
