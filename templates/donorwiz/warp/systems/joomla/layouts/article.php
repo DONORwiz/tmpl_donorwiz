@@ -101,8 +101,8 @@
 		echo JLayoutHelper::render('toolbar.toolbar',$params,JPATH_ROOT.'/components/com_donorwiz/layouts');
 	?>
     </div>
-    <div class="addthis_sharing_toolbox"></div>
-     <!-- /Donorwiz -->
+
+	<!-- /Donorwiz -->
 	<?php endif; ?>
 
 	<?php if ($image && $image_alignment != 'none') : ?>
